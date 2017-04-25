@@ -1,7 +1,7 @@
 "use strict;"
 
 // The port to serve on
-const PORT = 3000;
+const PORT = 3449;
 
 // global variables
 var fs = require('fs');
@@ -41,35 +41,38 @@ function serveFile(file, type, req, res) {
 function handleRequest(req, res) {
   switch(req.url) {
     // Serving static files
-    case '/':
-    case '/index.html':
-      serveFile('public/index.html', 'text/html', req, res);
-      break;
-    case '/style.css':
-      serveFile('public/style.css', 'text/css', req, res);
-      break;
-    case '/script.js':
-      serveFile('public/script.js', 'text/css', req, res);
-      break;
+  case '/':
+  case '/index.html':
+    serveFile('public/index.html', 'text/html', req, res);
+    break;
+  case '/style.css':
+    serveFile('public/style.css', 'text/css', req, res);
+    break;
+  case '/script.js':
+    serveFile('public/script.js', 'text/css', req, res);
+    break;
     // Serving image files
-    case '/images/ace.jpg':
-      serveFile('images/ace.jpg', 'image/jpeg', req, res);
-      break;
-    case '/images/bubble.jpg':
-      serveFile('images/bubble.jpg', 'image/jpeg', req, res);
-      break;
-    case '/images/chess.jpg':
-      serveFile('images/chess.jpg', 'image/jpeg', req, res);
-      break;
-    case '/images/fern.jpg':
-      serveFile('images/fern.jpg', 'image/jpeg', req, res);
-      break;
-    case '/images/mobile.jpg':
-      serveFile('images/mobile.jpg', 'image/jpeg', req, res);
-      break;
+  case '/images/ace.jpg':
+    serveFile('images/ace.jpg', 'image/jpeg', req, res);
+    break;
+  case '/images/bubble.jpg':
+    serveFile('images/bubble.jpg', 'image/jpeg', req, res);
+    break;
+  case '/images/chess.jpg':
+    serveFile('images/chess.jpg', 'image/jpeg', req, res);
+    break;
+  case '/images/fern.jpg':
+    serveFile('images/fern.jpg', 'image/jpeg', req, res);
+    break;
+  case '/images/mobile.jpg':
+    serveFile('images/mobile.jpg', 'image/jpeg', req, res);
+    break;
+  case '/permutations.js':
+    serveFile('public/permutatations.js', 'text/javascript', req, res);
+    break;
     // Serve error code
-    default:
-      res.statusCode = 404;
-      res.end("Not found");
+  default:
+    res.statusCode = 404;
+    res.end("Not found");
   }
 }
